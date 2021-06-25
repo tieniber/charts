@@ -43,6 +43,9 @@ export const fetchPieData = (props: PieChartDataHandlerProps) => (dispatch: Disp
             if (props.sortAttribute) {
                 attributes.push(props.sortAttribute);
             }
+            if (props.colorAttribute) {
+                attributes.push(props.colorAttribute);
+            }
             const url = props.restUrl && generateRESTURL(props.mxObject, props.restUrl, props.restParameters);
 
             fetchData<string>({

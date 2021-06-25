@@ -86,6 +86,14 @@
                 <attributeType name="DateTime"/>
             </attributeTypes>
         </property>
+        <property key="colorAttribute" type="attribute" entityProperty="dataEntity" required="false">
+            <caption>Color attribute</caption>
+            <category>Data points</category>
+            <description/>
+            <attributeTypes>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>        
         <property key="sortOrder" type="enumeration" defaultValue="asc">
             <caption>Sort order</caption>
             <category>Data points</category>

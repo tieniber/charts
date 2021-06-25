@@ -106,6 +106,7 @@ export namespace Container {
     export interface PieChartContainerProps extends Data.DataSourceProps, Style.Dimensions, Style.Appearance, Data.EventProps, WrapperProps {
         nameAttribute: string;
         valueAttribute: string;
+        colorAttribute: string;
         sortAttribute: string;
         colors: { color: string }[];
         sortOrder: Data.SortOrder;

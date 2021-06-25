@@ -39,11 +39,19 @@ export const getData = (data: Data.FetchedData<string>, props: PieChartDataHandl
 export const getTraces = (data: Data.FetchedData<string>, props: PieChartDataHandlerProps): PieTraces => {
     const colors = props.colors && props.colors.length ? props.colors.map(color => color.color) : defaultColours();
     if (data.mxObjects) {
-        return {
-            colors,
-            labels: data.mxObjects.map(mxObject => mxObject.get(props.nameAttribute) as string),
-            values: data.mxObjects.map(mxObject => parseFloat(mxObject.get(props.valueAttribute) as string))
-        };
+        if (props.colorAttribute) {
+            return {
+                colors: data.mxObjects.map(mxObject => mxObject.get(props.colorAttribute) as string),
+                labels: data.mxObjects.map(mxObject => mxObject.get(props.nameAttribute) as string),
+                values: data.mxObjects.map(mxObject => parseFloat(mxObject.get(props.valueAttribute) as string))
+            };
+        } else {
+            return {
+                colors,
+                labels: data.mxObjects.map(mxObject => mxObject.get(props.nameAttribute) as string),
+                values: data.mxObjects.map(mxObject => parseFloat(mxObject.get(props.valueAttribute) as string))
+            };
+        }
     }
     if (data.restData) {
         return {
